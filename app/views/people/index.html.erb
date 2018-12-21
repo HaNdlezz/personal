@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Lista de Personas</title></head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>DNI</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for x in @personas do %>
+				<tr>
+					<td><%= x.name %></td>
+					<td><%= x.dni %></td>
+					<td><%= link_to "Editar" , edit_person_path(x) %></td>
+					<td><%= link_to 'Eliminar', x, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= link_to 'Agregar', new_person_path %>
+	</body>
+</html>

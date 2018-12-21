@@ -1,0 +1,220 @@
+months:
+  12:
+  - name: Es el día del Plátanooo
+    regions: [custom]
+    mday: 18
+    year_ranges:
+      - 2018
+  - name: Navidad
+    regions: [custom]
+    mday: 25
+
+methods:
+  st_peter_st_paul_cl:
+    arguments: year
+    # Nearest monday
+    ruby: |
+      date = Date.civil(year, 6, 29)
+      if [2,3,4].include?(date.wday)
+        date -= (date.wday - 1)
+      elsif date.wday == 5
+        date += 3
+      end
+      date
+  columbus_day_cl:
+    arguments: year
+    # Nearest monday
+    ruby: |
+      date = Date.civil(year, 10, 12)
+      if [2,3,4].include?(date.wday)
+        date -= (date.wday - 1)
+      elsif date.wday == 5
+        date += 3
+      end
+      date
+  other_churches_day_cl:
+    arguments: year
+    # If on tuesday, friday before, if on wednesday, next friday
+    ruby: |
+      date = Date.civil(year, 10, 31)
+      if date.wday == 2
+        date -= 4
+      elsif date.wday == 3
+        date += 2
+      end
+      date
+tests:
+  - given:
+      date: '2014-01-01'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Año Nuevo"
+  - given:
+      date: '2011-04-22'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Viernes Santo"
+  - given:
+      date: '2011-04-23'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Sábado Santo"
+  - given:
+      date: '2012-04-06'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Viernes Santo"
+  - given:
+      date: '2012-04-07'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Sábado Santo"
+  - given:
+      date: '2013-03-29'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Viernes Santo"
+  - given:
+      date: '2013-03-30'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Sábado Santo"
+  - given:
+      date: '2014-04-18'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Viernes Santo"
+  - given:
+      date: '2014-04-19'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Sábado Santo"
+  - given:
+      date: '2015-04-03'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Viernes Santo"
+  - given:
+      date: '2015-04-04'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Sábado Santo"
+  - given:
+      date: '2016-03-25'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Viernes Santo"
+  - given:
+      date: '2016-03-26'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Sábado Santo"
+  - given:
+      date: '2014-05-01'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Día del Trabajo"
+  - given:
+      date: '2014-05-21'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Día de las Glorias Navales"
+  - given:
+      date: '1999-06-29'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "San Pedro y San Pablo"
+  - given:
+      date: '2000-06-26'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "San Pedro y San Pablo"
+  - given:
+      date: '2017-06-26'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "San Pedro y San Pablo"
+  - given:
+      date: '2018-07-2'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "San Pedro y San Pablo"
+  - given:
+      date: '2014-07-16'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Día de la Virgen del Carmen"
+  - given:
+      date: '2014-08-15'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Asunción de la Virgen"
+  - given:
+      date: '2014-09-18'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Independencia Nacional"
+  - given:
+      date: '2014-09-19'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Día de las Glorias del Ejército"
+  - given:
+      date: '1999-10-12'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Encuentro de Dos Mundos"
+  - given:
+      date: '2017-10-9'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Encuentro de Dos Mundos"
+  - given:
+      date: '2017-10-27'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Día de las Iglesias Evangélicas y Protestantes"
+  - given:
+      date: '2014-11-01'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Día de Todos los Santos"
+  - given:
+      date: '2014-12-08'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Inmaculada Concepción de María"
+  - given:
+      date: '2014-12-25'
+      regions: ["cl"]
+      options: ["informal"]
+    expect:
+      name: "Navidad"
