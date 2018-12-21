@@ -12,7 +12,7 @@ class PeopleController < ApplicationController
 	def new
 		@person = Person.new
 	end
-	
+	ssasa
 	def create
 		person = Person.new
 		person.name = params[:person][:name]
