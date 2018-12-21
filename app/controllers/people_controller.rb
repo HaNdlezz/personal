@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
 	      end
 	    end
 	end
-	
+	Master
 	def show
 	end
 
