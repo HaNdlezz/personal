@@ -1,2 +1,3 @@
 obtain data from repository for index
 master
+rama2
