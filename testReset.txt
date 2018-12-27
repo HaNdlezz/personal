@@ -1,3 +1,5 @@
 obtain data from repository for index
 master
 master
+rama2
+rama2
